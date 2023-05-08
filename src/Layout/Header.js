@@ -12,7 +12,9 @@ const Header = ({ userId, handleLogout }) => {
       </Link>
       <SearchBar />
       {userId ? (
-        <button onClick={handleLogout}>로그아웃</button>
+        <Link to="/" onClick={handleLogout}>
+          로그아웃
+        </Link>
       ) : (
         <>
           <Link to="/login">
