@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import classes from "./SearchBar.module.css";
 import axios from "axios";
 import SearchResult from "../Layout/SearchResult";
 
@@ -8,9 +7,7 @@ const SearchBar = () => {
   const [searchResults, setSearchResults] = useState([]);
 
   const searchHandler = async () => {
-    const response = await axios.get(
-      `https://restcountries.com/v3.1/name/${searchTerm}?fullText=true`
-    );
+    const response = await axios.get(`/search?name=${searchTerm}`);
     setSearchResults(response.data);
   };
 
@@ -19,7 +16,6 @@ const SearchBar = () => {
       <input
         type="search"
         placeholder="Search..."
-        className={classes.input}
         value={searchTerm}
         onChange={(event) => setSearchTerm(event.target.value)}
       />
