@@ -1,5 +1,5 @@
 import classes from "./Header.module.css";
-import SearchBar from "../UI/SearchBar";
+// import SearchBar from "../UI/SearchBar";
 import LoginButton from "../UI/LoginButton";
 import { Link } from "react-router-dom";
 import SignupButton from "../UI/SignupButton";
@@ -10,7 +10,7 @@ const Header = ({ userId, handleLogout }) => {
       <Link to="/">
         <h1 className={classes.h1}>Welcome to Your Travel Guide</h1>
       </Link>
-      <SearchBar />
+      {/* <SearchBar /> */}
       {userId ? (
         <Link to="/" onClick={handleLogout}>
           로그아웃
