@@ -1,14 +1,25 @@
 import React, { useState } from "react";
-import axios from "axios";
 import SearchResult from "../Layout/SearchResult";
 
 const SearchBar = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [searchResults, setSearchResults] = useState([]);
 
-  const searchHandler = async () => {
-    const response = await axios.get(`/search?name=${searchTerm}`);
-    setSearchResults(response.data);
+  const searchHandler = (event) => {
+    event.preventDefault();
+
+    const countryName = searchTerm;
+    fetch("http://localhost:3001/search", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+      body: `countryName=${encodeURIComponent(countryName)}`,
+    })
+      .then((response) => response.json())
+      .then((data) => setSearchResults(data));
+
+    console.log(searchTerm);
   };
 
   return (

@@ -7,6 +7,7 @@ import LoginPage from "./LoginPage";
 import { useState } from "react";
 import UserProfile from "./UserProfile";
 import { createBrowserHistory } from "history";
+import SearchResult from "./Layout/SearchResult";
 
 function App() {
   const [userId, setUserId] = useState(null);
@@ -32,6 +33,10 @@ function App() {
         <Route path="/login" element={<LoginPage setUserId={setUserId} />} />
         <Route path="/signin" Component={SignupPage} />
         <Route path="/UserProfile" element={<UserProfile userId={userId} />} />
+        <Route
+          path="/search"
+          element={<SearchResult searchResults={SearchResult} />}
+        />
       </Routes>
     </BrowserRouter>
   );

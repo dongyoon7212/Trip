@@ -139,9 +139,22 @@ app.post("/login", (req, res) => {
 });
 
 // 검색결과
-app.get("/search", async (req, res) => {
-  const searchTerm = req.query.name;
-  // 검색어를 이용해 데이터베이스에서 검색
-  const searchResults = await searchDatabase(searchTerm);
-  res.send(searchResults);
+app.post("/search", (req, res) => {
+  const countryName = req.body.countryName;
+
+  if (countryName) {
+    db.query(
+      "SELECT * FROM countries WHERE name LIKE ?",
+      [`%${countryName}%`],
+      (error, results) => {
+        if (error) {
+          console.error(error);
+          res.status(500).send("Internal Server Error");
+        } else {
+          res.send(results);
+        }
+      }
+    );
+  }
+  console.log(countryName);
 });

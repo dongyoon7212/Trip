@@ -6,15 +6,16 @@ const SearchResult = ({ searchResults }) => {
   }
 
   return (
-    <ul>
-      {searchResults.map((country) => (
-        <li key={country.name.common}>
-          <div>{country.name.common}</div>
-          <div>Capital: {country.capital}</div>
-          <div>Region: {country.region}</div>
-        </li>
+    <div>
+      {searchResults.map((result) => (
+        <ul key={result.id}>
+          <li>국가이름: {result.name}</li>
+          <li>수도: {result.capital}</li>
+          <li>언어: {result.language}</li>
+          <li>화폐: {result.currency}</li>
+        </ul>
       ))}
-    </ul>
+    </div>
   );
 };
 
