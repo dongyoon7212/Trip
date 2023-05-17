@@ -3,6 +3,7 @@
 # 추가된 내용
 db.js
 sessionOption.js
+.env
 # dependencies
 /node_modules
 /.pnp
