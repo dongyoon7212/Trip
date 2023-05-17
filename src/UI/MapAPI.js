@@ -26,7 +26,7 @@ const MapAPI = ({ country }) => {
   };
 
   return (
-    <LoadScript googleMapsApiKey="AIzaSyB4FbtTm4UMYuvF8NyyE1FaCaiNK2IpbaQ">
+    <LoadScript googleMapsApiKey={process.env.REACT_APP_GOOGLE_MAPS_API_KEY}>
       <GoogleMap mapContainerStyle={mapStyles} zoom={5} center={markerPosition}>
         {markerPosition && <Marker position={markerPosition} />}
       </GoogleMap>
