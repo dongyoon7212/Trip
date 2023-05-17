@@ -2,9 +2,12 @@
 import React, { useState } from "react";
 import SearchBar from "../UI/SearchBar";
 import SearchResult from "../Layout/SearchResult";
+import MapAPI from "../UI/MapAPI";
 
 const Main = () => {
   const [searchResults, setSearchResults] = useState([]);
+
+  const [country, setCountry] = useState("");
 
   const handleSearch = (searchTerm) => {
     fetch("http://localhost:3001/search", {
@@ -16,6 +19,7 @@ const Main = () => {
     })
       .then((response) => response.json())
       .then((data) => setSearchResults(data));
+    setCountry(searchTerm);
   };
 
   return (
@@ -24,7 +28,8 @@ const Main = () => {
       {searchResults.length > 0 && (
         <SearchResult searchResults={searchResults} />
       )}
-      {/* 추가적인 컨텐츠 출력 코드 작성 */}
+      {searchResults.length > 0 && <MapAPI country={country} />}
+      {}
     </div>
   );
 };

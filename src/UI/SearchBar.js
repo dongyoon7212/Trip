@@ -4,9 +4,17 @@ import React, { useState } from "react";
 const SearchBar = ({ handleSearch }) => {
   const [searchTerm, setSearchTerm] = useState("");
 
-  const searchHandler = (event) => {
+  const handleSubmit = (event) => {
     event.preventDefault();
     handleSearch(searchTerm);
+    setSearchTerm("");
+  };
+
+  const handleKeyDown = (event) => {
+    if (event.key === "Enter") {
+      event.preventDefault();
+      handleSubmit(event);
+    }
   };
 
   return (
@@ -16,8 +24,9 @@ const SearchBar = ({ handleSearch }) => {
         placeholder="Search..."
         value={searchTerm}
         onChange={(event) => setSearchTerm(event.target.value)}
+        onKeyDown={handleKeyDown}
       />
-      <button onClick={searchHandler}>Search</button>
+      <button onClick={handleSubmit}>Search</button>
     </div>
   );
 };
