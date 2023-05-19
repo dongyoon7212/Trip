@@ -62,7 +62,7 @@ const SearchResult = ({ searchResults }) => {
       searchResults.map((result) => {
         return axios
           .get(
-            `https://api.openweathermap.org/data/2.5/weather?q=${result.capitalAB}&appid=49a1c253f0bf0f087e51090a84a9a240&units=metric`
+            `https://api.openweathermap.org/data/2.5/weather?q=${result.capitalAB}&appid=${process.env.REACT_APP_WEATHER_API_KEY}&units=metric`
           )
           .then((response) => {
             const weather = response.data;
