@@ -17,7 +17,7 @@ const SearchResult = ({ searchResults }) => {
     Promise.all(
       searchResults.map((result) => {
         return fetch(
-          `https://v6.exchangerate-api.com/v6/a513c4773be605c914469479/latest/${result.currencyAB}`,
+          `https://v6.exchangerate-api.com/v6/${process.env.REACT_APP_EXCHANGE_API_KEY}/latest/${result.currencyAB}`,
           requestOptions
         )
           .then((response) => response.json())
@@ -70,6 +70,7 @@ const SearchResult = ({ searchResults }) => {
               capital: result.capitalAB,
               temperature: weather.main.temp,
               description: weather.weather[0].description,
+              icon: weather.weather[0].icon,
             };
           })
           .catch((error) => {
@@ -85,9 +86,10 @@ const SearchResult = ({ searchResults }) => {
         const weatherData = {};
         results.forEach((result) => {
           if (result) {
-            weatherData[result.capitalAB] = {
+            weatherData[result.capital] = {
               temperature: result.temperature,
               description: result.description,
+              icon: result.icon,
             };
           }
         });
@@ -104,6 +106,15 @@ const SearchResult = ({ searchResults }) => {
     fetchExchangeRates();
     fetchWeatherData();
   }, [fetchExchangeRates, fetchWeatherData]);
+
+  useEffect(() => {
+    if (
+      Object.keys(weatherData).length > 0 &&
+      Object.keys(weatherData)[0] !== "undefined"
+    ) {
+      console.log(weatherData[Object.keys(weatherData)[0]]);
+    }
+  }, [weatherData]);
 
   if (!searchResults || searchResults.length === 0) {
     return null;
@@ -132,11 +143,21 @@ const SearchResult = ({ searchResults }) => {
             <li>Loading...</li>
           ) : (
             <li>
-              {weatherData[result.capitalAB]
-                ? `온도: ${weatherData[result.capitalAB].temperature.toFixed(
-                    1
-                  )}°C, 날씨: ${weatherData[result.capitalAB].description}`
-                : "날씨 정보를 가져오지 못했습니다."}
+              {weatherData[result.capitalAB] &&
+              weatherData[result.capitalAB].icon ? (
+                <>
+                  온도: {weatherData[result.capitalAB].temperature.toFixed(1)}
+                  °C, 날씨: {weatherData[result.capitalAB].description}{" "}
+                  <img
+                    src={`http://openweathermap.org/img/w/${
+                      weatherData[result.capitalAB].icon
+                    }.png`}
+                    alt="Weather Icon"
+                  />
+                </>
+              ) : (
+                "날씨 정보를 가져오지 못했습니다."
+              )}
             </li>
           )}
         </ul>
