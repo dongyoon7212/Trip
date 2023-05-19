@@ -13,7 +13,7 @@ const SearchBar = ({ handleSearch }) => {
   const handleKeyDown = (event) => {
     if (event.key === "Enter") {
       event.preventDefault();
-      handleSubmit(event);
+      handleSearch(searchTerm);
     }
   };
 
@@ -21,7 +21,7 @@ const SearchBar = ({ handleSearch }) => {
     <div>
       <input
         type="search"
-        placeholder="Search..."
+        placeholder="국가를 검색하세요."
         value={searchTerm}
         onChange={(event) => setSearchTerm(event.target.value)}
         onKeyDown={handleKeyDown}

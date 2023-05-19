@@ -2,10 +2,11 @@ import { Route, Routes, BrowserRouter } from "react-router-dom";
 import "./App.css";
 import Header from "./Layout/Header";
 import Main from "./Layout/Main";
+import FstMain from "./Layout/FstMain";
 import SignupPage from "./SignupPage";
 import LoginPage from "./LoginPage";
 import { useState } from "react";
-import UserProfile from "./UserProfile";
+import UserProfile from "./UI/UserProfile";
 import { createBrowserHistory } from "history";
 import SearchResult from "./Layout/SearchResult";
 
@@ -29,10 +30,11 @@ function App() {
     <BrowserRouter>
       <Header userId={userId} handleLogout={handleLogout} />
       <Routes>
-        <Route path="/" Component={Main} />
+        <Route path="/" Component={FstMain} />
         <Route path="/login" element={<LoginPage setUserId={setUserId} />} />
         <Route path="/signin" Component={SignupPage} />
         <Route path="/UserProfile" element={<UserProfile userId={userId} />} />
+        <Route path="/Main" Component={Main} />
         <Route
           path="/search"
           element={<SearchResult searchResults={SearchResult} />}

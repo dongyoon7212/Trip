@@ -21,13 +21,13 @@ const MapAPI = ({ country }) => {
   }, [country]);
 
   const mapStyles = {
-    height: "400px",
-    width: "100%",
+    height: "500px",
+    width: "500px",
   };
 
   return (
     <LoadScript googleMapsApiKey={process.env.REACT_APP_GOOGLE_MAPS_API_KEY}>
-      <GoogleMap mapContainerStyle={mapStyles} zoom={5} center={markerPosition}>
+      <GoogleMap mapContainerStyle={mapStyles} zoom={4} center={markerPosition}>
         {markerPosition && <Marker position={markerPosition} />}
       </GoogleMap>
     </LoadScript>

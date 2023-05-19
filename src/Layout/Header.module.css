@@ -10,6 +10,10 @@
   position: absolute;
   font-size: 40px;
   font-weight: 300;
-  line-height: 10px
+  line-height: 10px;
 }
 
+.logout{
+  position: absolute;
+  right: 50px;
+}

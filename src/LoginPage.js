@@ -23,7 +23,7 @@ const LoginPage = ({ setUserId }) => {
       .then((json) => {
         if (json.isLogin === "True") {
           setUserId(id);
-          navigate("/UserProfile");
+          navigate("/Main");
         } else {
           alert(json.isLogin);
         }
