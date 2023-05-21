@@ -127,7 +127,7 @@ const SearchResult = ({ searchResults }) => {
           <li>국가이름: {result.name}</li>
           <li>수도: {result.capital}</li>
           <li>언어: {result.language}</li>
-          <li>화폐: {result.currencyAB}</li>
+          <li>화폐: {result.currency}</li>
           {loading ? (
             <li>Loading...</li>
           ) : (
@@ -135,7 +135,7 @@ const SearchResult = ({ searchResults }) => {
               {exchangeRates[result.currencyAB]
                 ? `환율(${result.currencyAB}/KRW): ${exchangeRates[
                     result.currencyAB
-                  ].toFixed(2)}`
+                  ].toFixed(2)}원`
                 : "환율 정보를 가져오지 못했습니다."}
             </li>
           )}

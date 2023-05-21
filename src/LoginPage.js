@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import classes from "./LoginPage.module.css";
 
 const LoginPage = ({ setUserId }) => {
   const [id, setId] = useState("");
@@ -31,8 +32,8 @@ const LoginPage = ({ setUserId }) => {
   };
 
   return (
-    <div>
-      <h1>loginPage</h1>
+    <div className={classes.container}>
+      <h1 className={classes.h1}>로그인</h1>
       <form onSubmit={handleSubmit}>
         <div>
           <p>

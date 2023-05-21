@@ -1,9 +1,20 @@
+@font-face {
+    font-family: 'MapoPeacefull';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/MapoPeacefullA.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
 .SignupButton{
     position: absolute;
-    right: 50px;
+    width: 85px;
+    height: 35px;
+    background-color: white;
+    color: #146C94;
+    right: 40px;
     top: 10px;
-    width: auto;
-    font-size: 20px;
-    padding: 5px;
+    font-family: 'MapoPeacefull';
+    font-size: 15px;
+    font-weight: bolder;
     border-radius: 10px;
 }

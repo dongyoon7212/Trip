@@ -10,12 +10,12 @@ const Header = ({ userId, handleLogout }) => {
     <header className={classes.header}>
       {userId ? (
         <Link to="/Main">
-          <h1 className={classes.h1}>Welcome to Your Travel Guide</h1>
+          <h1 className={classes.h1}>걸어서 세계 속으로...</h1>
         </Link>
       ) : (
         <>
           <Link to="/">
-            <h1 className={classes.h1}>Welcome to Your Travel Guide</h1>
+            <h1 className={classes.h1}>걸어서 세계 속으로...</h1>
           </Link>
         </>
       )}
@@ -29,12 +29,14 @@ const Header = ({ userId, handleLogout }) => {
         </div>
       ) : (
         <>
-          <Link to="/login">
-            <LoginButton />
-          </Link>
-          <Link to="/signin">
-            <SignupButton />
-          </Link>
+          <div className={classes.buttonContainer}>
+            <Link to="/login">
+              <LoginButton />
+            </Link>
+            <Link to="/signin">
+              <SignupButton />
+            </Link>
+          </div>
         </>
       )}
     </header>
