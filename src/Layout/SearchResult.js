@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useCallback } from "react";
 import axios from "axios";
+import classes from './SearchResult.module.css'
 
 const SearchResult = ({ searchResults }) => {
   const [exchangeRates, setExchangeRates] = useState({});
@@ -121,17 +122,17 @@ const SearchResult = ({ searchResults }) => {
   }
 
   return (
-    <div>
+    <div className={classes.container}>
       {searchResults.map((result) => (
-        <ul key={result.id}>
-          <li>국가이름: {result.name}</li>
-          <li>수도: {result.capital}</li>
-          <li>언어: {result.language}</li>
-          <li>화폐: {result.currency}</li>
+        <ul key={result.id} className={classes.ul}>
+          <li className={classes.li}>국가이름: {result.name}</li>
+          <li className={classes.li}>수도: {result.capital}</li>
+          <li className={classes.li}>언어: {result.language}</li>
+          <li className={classes.li}>화폐: {result.currency}</li>
           {loading ? (
-            <li>Loading...</li>
+            <li className={classes.li}>Loading...</li>
           ) : (
-            <li>
+            <li className={classes.li}>
               {exchangeRates[result.currencyAB]
                 ? `환율(${result.currencyAB}/KRW): ${exchangeRates[
                     result.currencyAB
@@ -142,7 +143,7 @@ const SearchResult = ({ searchResults }) => {
           {loading ? (
             <li>Loading...</li>
           ) : (
-            <li>
+            <li className={classes.li}>
               {weatherData[result.capitalAB] &&
               weatherData[result.capitalAB].icon ? (
                 <>

@@ -32,6 +32,17 @@
 }
 
 .buttonContainer {
-  width: 100%;
-  position: relative;
+  width: 300px;
+  position: absolute;
+  right: 15px;
+  top: 15px;
+}
+
+.userContainer{
+  width: 400px;
+  height: 30px;
+  position: absolute;
+  top: 30px;
+  right: 20px;
+  /* background-color: khaki; */
 }

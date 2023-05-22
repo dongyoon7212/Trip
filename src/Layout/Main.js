@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import SearchBar from "../UI/SearchBar";
 import SearchResult from "../Layout/SearchResult";
 import MapAPI from "../UI/MapAPI";
+import classes from './Main.module.css'
 
 const Main = () => {
   const [searchResults, setSearchResults] = useState([]);
@@ -23,7 +24,7 @@ const Main = () => {
   };
 
   return (
-    <div>
+    <div className={classes.container}>
       <SearchBar handleSearch={handleSearch} />
       {searchResults.length > 0 && (
         <SearchResult searchResults={searchResults} />

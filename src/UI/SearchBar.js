@@ -1,5 +1,6 @@
 // UI/SearchBar.js
 import React, { useState } from "react";
+import classes from "./SearchBar.module.css";
 
 const SearchBar = ({ handleSearch }) => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -18,15 +19,18 @@ const SearchBar = ({ handleSearch }) => {
   };
 
   return (
-    <div>
+    <div className={classes.container}>
       <input
         type="search"
         placeholder="국가를 검색하세요."
+        className={classes.input}
         value={searchTerm}
         onChange={(event) => setSearchTerm(event.target.value)}
         onKeyDown={handleKeyDown}
       />
-      <button onClick={handleSubmit}>Search</button>
+      <button onClick={handleSubmit} className={classes.button}>
+        검색
+      </button>
     </div>
   );
 };
