@@ -1,6 +1,6 @@
 .container {
   /* background-color: khaki; */
-  width: 200px;
-  height: 200px;
-  /* position: relative; */
+  width: auto;
+  height: auto;
+  position: absolute;
 }

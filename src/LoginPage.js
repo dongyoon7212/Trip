@@ -36,8 +36,9 @@ const LoginPage = ({ setUserId }) => {
       <h1 className={classes.h1}>로그인</h1>
       <form onSubmit={handleSubmit}>
         <div>
-          <p>
+          <p className={classes.inputContainerID}>
             <input
+              className={classes.input}
               type="text"
               name="username"
               placeholder="아이디"
@@ -46,8 +47,9 @@ const LoginPage = ({ setUserId }) => {
               }}
             />
           </p>
-          <p>
+          <p className={classes.inputContainerPW}>
             <input
+              className={classes.input}
               type="password"
               name="pwd"
               placeholder="비밀번호"
@@ -57,20 +59,25 @@ const LoginPage = ({ setUserId }) => {
             />
           </p>
           <p>
-            <input type="submit" value="로그인" />
+            <input
+              className={classes.buttonLOGIN}
+              type="submit"
+              value="로그인"
+            />
           </p>
         </div>
       </form>
-      <p>
-        계정이 없으신가요?{" "}
+      <div>
+        <h3 className={classes.h3}>계정이 없으신가요? </h3>
         <button
+          className={classes.buttonSIGNUP}
           onClick={() => {
             navigate("/signin");
           }}
         >
           회원가입
         </button>
-      </p>
+      </div>
     </div>
   );
 };
