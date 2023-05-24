@@ -3,11 +3,10 @@ import React, { useState } from "react";
 import SearchBar from "../UI/SearchBar";
 import SearchResult from "../Layout/SearchResult";
 import MapAPI from "../UI/MapAPI";
-import classes from './Main.module.css'
+import classes from "./Main.module.css";
 
 const Main = () => {
   const [searchResults, setSearchResults] = useState([]);
-
   const [country, setCountry] = useState("");
 
   const handleSearch = (searchTerm) => {
@@ -19,8 +18,10 @@ const Main = () => {
       body: `countryName=${encodeURIComponent(searchTerm)}`,
     })
       .then((response) => response.json())
-      .then((data) => setSearchResults(data));
-    setCountry(searchTerm);
+      .then((data) => {
+        setSearchResults(data);
+        setCountry(searchTerm);
+      });
   };
 
   return (
@@ -29,8 +30,7 @@ const Main = () => {
       {searchResults.length > 0 && (
         <SearchResult searchResults={searchResults} />
       )}
-      {searchResults.length > 0 && <MapAPI country={country} />}
-      {}
+      {country && <MapAPI country={country} />}
     </div>
   );
 };

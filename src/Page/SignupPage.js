@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import classes from "./SignupPage.module.css";
 
 const SignupPage = (props) => {
   const [id, setId] = useState("");
@@ -9,11 +10,12 @@ const SignupPage = (props) => {
   const navigate = useNavigate();
 
   return (
-    <div>
-      <h1>회원가입</h1>
+    <div className={classes.container}>
+      <h1 className={classes.h1}>회원가입</h1>
       <div>
-        <p>
+        <p className={classes.inputContainerID}>
           <input
+            className={classes.input}
             type="text"
             placeholder="아이디"
             onChange={(event) => {
@@ -21,8 +23,9 @@ const SignupPage = (props) => {
             }}
           />
         </p>
-        <p>
+        <p className={classes.inputContainerPW}>
           <input
+            className={classes.input}
             type="password"
             placeholder="비밀번호"
             onChange={(event) => {
@@ -30,8 +33,9 @@ const SignupPage = (props) => {
             }}
           />
         </p>
-        <p>
+        <p className={classes.inputContainerPW2}>
           <input
+            className={classes.input}
             type="password"
             placeholder="비밀번호 확인"
             onChange={(event) => {
@@ -42,6 +46,7 @@ const SignupPage = (props) => {
 
         <p>
           <input
+            className={classes.buttonSignup}
             type="submit"
             value="회원가입"
             onClick={() => {
@@ -73,11 +78,12 @@ const SignupPage = (props) => {
         </p>
       </div>
 
-      <p>
+      <p className={classes.h3}>
         로그인화면으로 돌아가기{" "}
         <button
+          className={classes.buttonGoLogin}
           onClick={() => {
-            navigate('/login')
+            navigate("/login");
           }}
         >
           로그인

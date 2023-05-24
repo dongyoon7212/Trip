@@ -1,0 +1,26 @@
+@font-face {
+    font-family: 'MapoPeacefull';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/MapoPeacefullA.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* .container{
+    width: 100%;
+    position: relative;
+} */
+
+.Button{
+    width: 75px;
+    height: 35px;
+    background-color: white;
+    color: #146C94;
+    position: absolute;
+    right: 10px;
+    /* top: 10px; */
+    font-family: 'MapoPeacefull';
+    font-size: 15px;
+    font-weight: bolder;
+    border-radius: 10px;
+    z-index: 3;
+}

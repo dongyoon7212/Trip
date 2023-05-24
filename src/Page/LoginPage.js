@@ -68,7 +68,7 @@ const LoginPage = ({ setUserId }) => {
         </div>
       </form>
       <div>
-        <h3 className={classes.h3}>계정이 없으신가요? </h3>
+        <p className={classes.h3}>계정이 없으신가요? </p>
         <button
           className={classes.buttonSIGNUP}
           onClick={() => {

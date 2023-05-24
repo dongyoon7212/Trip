@@ -1,9 +1,10 @@
 import classes from "./Header.module.css";
 // import SearchBar from "../UI/SearchBar";
-import LoginButton from "../UI/LoginButton";
+import LoginButton from "../UI/Button/LoginButton";
 import { Link } from "react-router-dom";
-import SignupButton from "../UI/SignupButton";
+import SignupButton from "../UI/Button/SignupButton";
 import UserProfile from "../UI/UserProfile";
+import LogoutButton from "../UI/Button/LogoutButton";
 
 const Header = ({ userId, handleLogout }) => {
   return (
@@ -27,7 +28,7 @@ const Header = ({ userId, handleLogout }) => {
       {userId ? (
         <div className={classes.userContainer}>
           <Link to="/" onClick={handleLogout} className={classes.logout}>
-            로그아웃
+            <LogoutButton />
           </Link>
           <UserProfile userId={userId} />
         </div>

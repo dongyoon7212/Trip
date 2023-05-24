@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { GoogleMap, LoadScript, Marker } from "@react-google-maps/api";
-// import classes from './MapAPI.module.css'
+import classes from './MapAPI.module.css'
 
 const MapAPI = ({ country }) => {
   const [markerPosition, setMarkerPosition] = useState(null);
@@ -22,13 +22,14 @@ const MapAPI = ({ country }) => {
   }, [country]);
 
   const mapStyles = {
-    height: "500px",
-    width: "800px",
+    height: "400px",
+    width: "600px",
   };
 
   return (
-    <div>
-      <LoadScript googleMapsApiKey={process.env.REACT_APP_GOOGLE_MAPS_API_KEY}>
+    <div className={classes.container}>
+      <LoadScript googleMapsApiKey={process.env.REACT_APP_GOOGLE_MAPS_API_KEY}
+      id="google-maps-script">
         <GoogleMap
           mapContainerStyle={mapStyles}
           zoom={4}

@@ -1,6 +1,14 @@
 .container {
   /* background-color: khaki; */
-  width: auto;
-  height: auto;
+  width: 90%;
+  height: 550px;
   position: absolute;
+  border: 1px solid black;
+  margin-top: 115px;
+  margin-left: 75px;
+  /* text-align: center; */
+  /* display: table; */
+  /* margin-left: auto; */
+  /* margin-right: auto; */
+  display: flex;
 }

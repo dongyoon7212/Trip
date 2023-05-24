@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback } from "react";
 import axios from "axios";
-import classes from './SearchResult.module.css'
+import classes from "./SearchResult.module.css";
 
 const SearchResult = ({ searchResults }) => {
   const [exchangeRates, setExchangeRates] = useState({});
@@ -148,8 +148,11 @@ const SearchResult = ({ searchResults }) => {
               weatherData[result.capitalAB].icon ? (
                 <>
                   온도: {weatherData[result.capitalAB].temperature.toFixed(1)}
-                  °C, 날씨: {weatherData[result.capitalAB].description}{" "}
+                  °C
+                  <br /> 날씨:
+                  {/* {weatherData[result.capitalAB].description}{" "} */}
                   <img
+                    className={classes.img}
                     src={`http://openweathermap.org/img/w/${
                       weatherData[result.capitalAB].icon
                     }.png`}
