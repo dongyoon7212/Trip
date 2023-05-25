@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useCallback } from "react";
 import axios from "axios";
 import classes from "./SearchResult.module.css";
+import LikeButton from "../UI/Button/LikeButton";
 
 const SearchResult = ({ searchResults }) => {
   const [exchangeRates, setExchangeRates] = useState({});
@@ -124,47 +125,48 @@ const SearchResult = ({ searchResults }) => {
   return (
     <div className={classes.container}>
       {searchResults.map((result) => (
-        <ul key={result.id} className={classes.ul}>
-          <li className={classes.li}>국가이름: {result.name}</li>
-          <li className={classes.li}>수도: {result.capital}</li>
-          <li className={classes.li}>언어: {result.language}</li>
-          <li className={classes.li}>화폐: {result.currency}</li>
+        <div key={result.id} className={classes.result}>
+          <h3 className={classes.h3}>국가: {result.name}</h3>
+          <LikeButton country={result} />
+          <p className={classes.p}>수도: {result.capital}</p>
+          <p className={classes.p}>언어: {result.language}</p>
+          <p className={classes.p}>화폐: {result.currency}</p>
           {loading ? (
-            <li className={classes.li}>Loading...</li>
+            <p>Loading...</p>
           ) : (
-            <li className={classes.li}>
+            <p className={classes.p}>
               {exchangeRates[result.currencyAB]
-                ? `환율(${result.currencyAB}/KRW): ${exchangeRates[
+                ? `환율 (${result.currencyAB}/KRW): ${exchangeRates[
                     result.currencyAB
-                  ].toFixed(2)}원`
-                : "환율 정보를 가져오지 못했습니다."}
-            </li>
+                  ].toFixed(2)} KRW`
+                : "Failed to fetch exchange rate."}
+            </p>
           )}
           {loading ? (
-            <li>Loading...</li>
+            <p>Loading...</p>
           ) : (
-            <li className={classes.li}>
+            <div>
               {weatherData[result.capitalAB] &&
               weatherData[result.capitalAB].icon ? (
                 <>
-                  온도: {weatherData[result.capitalAB].temperature.toFixed(1)}
-                  °C
-                  <br /> 날씨:
-                  {/* {weatherData[result.capitalAB].description}{" "} */}
-                  <img
-                    className={classes.img}
-                    src={`http://openweathermap.org/img/w/${
-                      weatherData[result.capitalAB].icon
-                    }.png`}
-                    alt="Weather Icon"
-                  />
+                  <p className={classes.p}>
+                    온도: {weatherData[result.capitalAB].temperature.toFixed(1)}°C
+                  </p>
+                  <p className={classes.p}>
+                    날씨: {weatherData[result.capitalAB].description}
+                    <img
+                      className={classes.weatherIcon}
+                      src={`http://openweathermap.org/img/w/${weatherData[result.capitalAB].icon}.png`}
+                      alt="Weather Icon"
+                    />
+                  </p>
                 </>
               ) : (
-                "날씨 정보를 가져오지 못했습니다."
+                <p>Failed to fetch weather data.</p>
               )}
-            </li>
+            </div>
           )}
-        </ul>
+        </div>
       ))}
     </div>
   );

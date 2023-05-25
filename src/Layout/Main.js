@@ -28,7 +28,9 @@ const Main = () => {
     <div className={classes.container}>
       <SearchBar handleSearch={handleSearch} />
       {searchResults.length > 0 && (
-        <SearchResult searchResults={searchResults} />
+        <>
+          <SearchResult searchResults={searchResults} />
+        </>
       )}
       {country && <MapAPI country={country} />}
     </div>

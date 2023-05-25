@@ -158,3 +158,26 @@ app.post("/search", (req, res) => {
   }
   console.log(countryName);
 });
+
+// 좋아요 리스트
+app.post("/like", (req, res) => {
+  const username = req.session.nickname; // 현재 로그인된 사용자의 이름
+  const countryId = req.body.countryId; // 좋아요를 누른 국가 ID
+
+  if (username && countryId) {
+    db.query(
+      "INSERT INTO userLike (userId, countryId) VALUES (?, ?)",
+      [username, countryId],
+      (error, result) => {
+        if (error) {
+          console.error(error);
+          res.status(500).send("Internal Server Error");
+        } else {
+          res.send("Liked successfully");
+        }
+      }
+    );
+  } else {
+    res.status(400).send("Bad Request");
+  }
+});
