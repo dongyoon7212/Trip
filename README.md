@@ -56,3 +56,9 @@
 ![Express.js](https://img.shields.io/badge/express.js-%23404d59.svg?style=for-the-badge&logo=express&logoColor=%2361DAFB)
 ![MySQL](https://img.shields.io/badge/mysql-4479A1.svg?style=for-the-badge&logo=mysql&logoColor=white)
 ![Google](https://img.shields.io/badge/google-4285F4?style=for-the-badge&logo=google&logoColor=white)
+
+## 🖥 화면 구현
+
+![스크린샷 2024-05-26 오후 4 08 56](https://github.com/dongyoon7212/Trip/assets/106566223/f3da7b88-aef4-430e-8abf-ce8ee87a111d)
+![스크린샷 2024-05-26 오후 4 08 51](https://github.com/dongyoon7212/Trip/assets/106566223/139f8018-8ffd-48a3-b12b-f4235d0869c3)
+![스크린샷 2024-05-26 오후 4 09 49](https://github.com/dongyoon7212/Trip/assets/106566223/c16fdc45-acee-4464-bae9-b4954b2e6ef5)
